@@ -11,8 +11,8 @@ public class ExclaimBasicTopo {
         TopologyBuilder builder = new TopologyBuilder();  
           
         builder.setSpout("spout", new RandomSpout());  
-        builder.setBolt("exclaim", new ExclaimBasicBolt()).shuffleGrouping("spout");  
-        builder.setBolt("print", new PrintBolt()).shuffleGrouping("exclaim");  
+        builder.setBolt("exclaim", new ExclaimBasicBolt(), 2).shuffleGrouping("spout");  
+        builder.setBolt("print", new PrintBolt(), 3).shuffleGrouping("exclaim");  
   
         Config conf = new Config();  
         conf.setDebug(false);  
