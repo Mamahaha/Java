@@ -1,4 +1,4 @@
-package com.led.storm.stormwordcount;
+package com.led.storm.stormexclaim;
 
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
