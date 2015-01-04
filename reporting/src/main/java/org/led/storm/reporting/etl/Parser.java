@@ -63,10 +63,7 @@ public class Parser {
                 + mReceptionReportOutputFilename;
 
         if (!checkAndDeleteExistingFile(mLocalReceptionReportOutputFilepath)) {
-            BmcLogger.eventError(BmcLogger.DOMAIN_ETL,
-                    ErrorCode.GENERATE_AVRO_FAILED,
-                    mLocalReceptionReportOutputFilepath, mBroadcastId,
-                    "Existing avro file can't be deleted.");
+            
             return false;
         }
 
@@ -94,12 +91,7 @@ public class Parser {
             return true;
 
         } catch (IOException e) {
-            BmcLogger.eventError(BmcLogger.DOMAIN_ETL,
-                    ErrorCode.GENERATE_AVRO_FAILED,
-                    mLocalReceptionReportOutputFilepath, mBroadcastId,
-                    e.getMessage());
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass()
-                    .getName(), e);
+            
             return false;
         }
     }
@@ -111,8 +103,7 @@ public class Parser {
                 f.delete();
             }
         } catch (Exception e) {
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass()
-                    .getName(), e);
+            
             return false;
         }
         return true;
@@ -122,17 +113,9 @@ public class Parser {
         try {
             mReceptionReportFileWriter.close();
 
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass()
-                    .getName(), "Avro file %s generated, total %d requests.",
-                    mLocalReceptionReportOutputFilepath, mTotalCount);
 
         } catch (IOException e) {
-            BmcLogger.eventError(BmcLogger.DOMAIN_ETL,
-                    ErrorCode.GENERATE_AVRO_FAILED,
-                    mLocalReceptionReportOutputFilepath, mBroadcastId,
-                    e.getMessage());
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass()
-                    .getName(), e);
+            
             throw new EtlException(e);
         }
     }
@@ -144,12 +127,6 @@ public class Parser {
     public void parseXmlAndWriteAvro(ByteArrayInputStream bin, Long dsiId,
             String reportType) {
 
-        BmcLogger
-                .eventDebug(
-                        BmcLogger.DOMAIN_ETL,
-                        this.getClass().getName(),
-                        "Start to parse Xml for broadcast id: %s, bdc id: %s, host: %s, deliverySessionInstanceInfoId: %d",
-                        mBroadcastId, mBmscId, mAdfHost, dsiId);
 
         int count = 0;
 
@@ -164,17 +141,9 @@ public class Parser {
 
             long stopTime = System.currentTimeMillis();
 
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass()
-                    .getName(),
-                    "Broadcast id: %s, total time for parsing xml: %d ms",
-                    mBroadcastId, stopTime - startTime);
+            
         } catch (Exception e) {
-            BmcLogger.eventError(BmcLogger.DOMAIN_ETL,
-                    ErrorCode.GENERATE_AVRO_FAILED,
-                    mLocalReceptionReportOutputFilepath, mBroadcastId,
-                    e.getMessage());
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass()
-                    .getName(), e);
+            
         }
     }
 
@@ -206,8 +175,7 @@ public class Parser {
                     List<StarType> statisticalReport = report
                             .getStatisticalReport();
                     if (statisticalReport.size() == 0) {
-                        BmcLogger.eventInfo(BmcLogger.DOMAIN_ETL,
-                                "No valid statistical report in UE statistical report request.");
+                        
                         continue;
                     }
 
@@ -218,12 +186,7 @@ public class Parser {
                 }
             }
         } catch (IOException e) {
-            BmcLogger.eventError(BmcLogger.DOMAIN_ETL,
-                    ErrorCode.GENERATE_AVRO_FAILED,
-                    mLocalReceptionReportOutputFilepath, mBroadcastId,
-                    e.getMessage());
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass()
-                    .getName(), e);
+            
             return 0;
         }
 
@@ -238,57 +201,36 @@ public class Parser {
 
             if ((statistics.getClientId() == null)
                     || statistics.getClientId().isEmpty()) {
-                BmcLogger.eventInfo(BmcLogger.DOMAIN_ETL,
-                        "Missing ClientId in UE statistical report");
+                
                 continue;
             }
 
             if ((statistics.getServiceId() == null)
                     || statistics.getServiceId().isEmpty()) {
-                BmcLogger
-                        .eventInfo(
-                                BmcLogger.DOMAIN_ETL,
-                                "Missing ServiceId in UE statistical report from Client ID: %s",
-                                statistics.getClientId());
+                
                 continue;
             }
 
             if ((statistics.getQoeMetrics() == null)
                     || (statistics.getQoeMetrics().getSessionStartTime() == null)) {
-                BmcLogger
-                        .eventInfo(
-                                BmcLogger.DOMAIN_ETL,
-                                "Missing SessionStartTime in UE statistical report from client ID: %s",
-                                statistics.getClientId());
+                
                 continue;
             }
 
             if ((statistics.getQoeMetrics() == null)
                     || (statistics.getQoeMetrics().getSessionStopTime() == null)) {
-                BmcLogger
-                        .eventInfo(
-                                BmcLogger.DOMAIN_ETL,
-                                "Missing SessionStopTime in UE statistical report from client ID: %s",
-                                statistics.getClientId());
+                
                 continue;
             }
 
             if ((reportType != null) && (reportType.equalsIgnoreCase("STAR_ONLY"))) {
                 if (statistics.getQoeMetrics().getNumberOfReceivedObjects()
                         .size() == 0) {
-                    BmcLogger
-                            .eventInfo(
-                                    BmcLogger.DOMAIN_ETL,
-                                    "Missing NumberOfReceivedObjects in UE statistical report from client ID: %s",
-                                    statistics.getClientId());
+                    
                     continue;
                 }
                 if (statistics.getQoeMetrics().getNumberOfLostObjects().size() == 0) {
-                    BmcLogger
-                            .eventInfo(
-                                    BmcLogger.DOMAIN_ETL,
-                                    "Missing NumberOfLostObjects in UE statistical report from client ID: %s",
-                                    statistics.getClientId());
+                    
                     continue;
                 }
 
@@ -345,11 +287,7 @@ public class Parser {
                     && (receptionReport.getSessionStopTime() > 0)
                     && (receptionReport.getSessionStartTime() >= receptionReport
                             .getSessionStopTime())) {
-                BmcLogger
-                        .eventInfo(
-                                BmcLogger.DOMAIN_ETL,
-                                "SessionStartTime is later than SessionStopTime in UE statistical report from client ID: %s",
-                                statistics.getClientId());
+                
                 return false;
             }
             if (statistics.getQoeMetrics().getMedialevelQoeMetrics().size() > 0) {
@@ -358,11 +296,7 @@ public class Parser {
             }
 
             if (!buildCellIds(statistics, cellIds)) {
-                BmcLogger
-                        .eventInfo(
-                                BmcLogger.DOMAIN_ETL,
-                                "Invalid NetworkResourceCellId in UE statistical report from client ID: %s",
-                                statistics.getClientId());
+                
                 return false;
             }
             buildReceiveLostObjs(statistics, receivedObjs, lostObjs);
