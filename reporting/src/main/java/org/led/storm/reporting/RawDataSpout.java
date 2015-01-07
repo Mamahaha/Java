@@ -16,10 +16,6 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 
 public class RawDataSpout extends BaseRichSpout{
-	private File fileName;
-	private InputStreamReader reader;
-	private BufferedReader br;
-	private boolean fileFlag = false;
 	private SpoutOutputCollector collector;
 	
 	public void open(Map conf, TopologyContext context,
@@ -27,23 +23,17 @@ public class RawDataSpout extends BaseRichSpout{
 		this.collector = collector;
 		
 	}
-
 	
 	public void nextTuple() {
-		if (fileFlag) {
-			String line;
-			try {
-				line = br.readLine();
-				System.out.println("rawdata spout input: " + line);
-				if (line != null) {
-					this.collector.emit(new Values(line));
-				}
-			} catch (IOException e) {
-				this.collector.emit(new Values("dummy data, read file failed"));
-				e.printStackTrace();
-			}			
+		
+		String rootPath = "/home/led/work/github/Java/reporting/bmsccontents/adfservice/";
+		String content = loadFile(rootPath);
+		if (content != null) {
+			//System.out.println("rawdata spout input: " + content);
+			this.collector.emit(new Values(content));					
 		}else {
 			this.collector.emit(new Values("dummy data, open file failed"));
+			deactivate();
 		}
 	}
 
@@ -51,35 +41,30 @@ public class RawDataSpout extends BaseRichSpout{
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
 		declarer.declare(new Fields("sentence"));
 	}
-	
-	@Override
-    public void activate() {
-		fileFlag = loadFile();
-    }
-	
-	@Override
-    public void deactivate() {
 		
-    }
-	
-	private boolean loadFile() {
-		String rootPath = "/home/led/work/github/Java/reporting/bmsccontents/adfservice/";
+	private String loadFile(String rootPath) {
+		InputStreamReader reader;
+		BufferedReader br;
+		
 		String filePath = rootPath + "1.log";
+		File file = new File(filePath);
+		Long fileLength = file.length();
+		byte[] fileContent = new byte[fileLength.intValue()];
 		
-		fileName = new File(filePath);
 		try {
-			reader = new InputStreamReader(new FileInputStream(fileName));
-			BufferedReader br = new BufferedReader(reader);
-			String line = br.readLine();
-			System.out.println("rawdata spout read line: " + line);
-			return true;
+			FileInputStream is = new FileInputStream(file);
+			is.read(fileContent);
+			is.close();
+
+			String content = new String(fileContent);
+			//System.out.println("rawdata spout read line: " + content);
+			return content;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-			return false;
+			return null;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return false;
-		}
-	
+			return null;
+		}	
 	}
 }

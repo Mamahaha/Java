@@ -10,9 +10,12 @@ import backtype.storm.tuple.Values;
 public class RawDataUnifyBolt extends BaseBasicBolt {
 	public void execute(Tuple input, BasicOutputCollector collector) {
 		String sentence = (String) input.getValue(0);
-		System.out.println("unify bolt input: " + sentence);
-		String out = sentence + "!";
-		collector.emit(new Values(out));		
+		//System.out.println("unify bolt input: " + sentence);
+		String[] items = sentence.split("\n");
+		for (String item : items) {
+			String out = item + "!";
+			collector.emit(new Values(out));
+		}	
 	}
 
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {

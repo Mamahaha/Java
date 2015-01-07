@@ -23,9 +23,7 @@ public class ReceptionReportReader {
         try {
             mXmlIf = XMLInputFactory.newInstance();
         } catch (Exception e) {
-            BmcLogger.eventError(BmcLogger.DOMAIN_ETL, ErrorCode.UNMARSHALL_XML_FAILED,
-                    e.getMessage());
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass().getName(), e);
+
             return false;
         }
 
@@ -80,13 +78,8 @@ public class ReceptionReportReader {
             }
 
             xsr.close();
-        } catch (BMCReportingRuntimeException e) {
-            BmcLogger.eventError(BmcLogger.DOMAIN_ETL, ErrorCode.UNMARSHALL_XML_FAILED,
-                    e.getMessage());
         } catch (Exception e) {
-            BmcLogger.eventError(BmcLogger.DOMAIN_ETL, ErrorCode.UNMARSHALL_XML_FAILED,
-                    e.getMessage());
-            BmcLogger.eventDebug(BmcLogger.DOMAIN_ETL, this.getClass().getName(), e);
+
             return null;
         }
 
