@@ -6,6 +6,7 @@ import backtype.storm.StormSubmitter;
 import backtype.storm.generated.AlreadyAliveException;
 import backtype.storm.generated.InvalidTopologyException;
 import backtype.storm.topology.TopologyBuilder;
+import backtype.storm.tuple.Fields;
 import backtype.storm.utils.Utils;
 
 /**
@@ -18,9 +19,13 @@ public class Analyzer
     {
     	TopologyBuilder builder = new TopologyBuilder();  
         
-        builder.setSpout("rawdataspout", new RawDataSpout());  
-        builder.setBolt("unifyrawdata", new RawDataUnifyBolt(), 2).shuffleGrouping("rawdataspout");  
-        builder.setBolt("persistrawdata", new RawDataPersistBolt(), 3).shuffleGrouping("unifyrawdata");  
+        //builder.setSpout("rawdataspout", new RawDataSpout());  
+        //builder.setBolt("unifyrawdata", new RawDataUnifyBolt(), 2).shuffleGrouping("rawdataspout");  
+        //builder.setBolt("persistrawdata", new RawDataPersistBolt(), 3).shuffleGrouping("unifyrawdata");
+    	builder.setSpout("rawdata", new RawDataSpout());
+    	builder.setBolt("parse", new ParseBolt(),4).shuffleGrouping("rawdata");
+    	builder.setBolt("broadcast_filter", new BroadcastBolt(), 3).fieldsGrouping("parse", new Fields("broadcast_id"));
+    	builder.setBolt("client_filter", new ClientBolt(), 3).fieldsGrouping("parse", new Fields("client_id"));
   
         Config conf = new Config();  
         conf.setDebug(false);  

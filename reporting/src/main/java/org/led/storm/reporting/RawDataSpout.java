@@ -1,12 +1,11 @@
 package org.led.storm.reporting;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import backtype.storm.spout.SpoutOutputCollector;
 import backtype.storm.task.TopologyContext;
@@ -25,15 +24,19 @@ public class RawDataSpout extends BaseRichSpout{
 	}
 	
 	public void nextTuple() {
+		try {
+			TimeUnit.SECONDS.sleep(10);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
-		String rootPath = "/home/led/work/github/Java/reporting/bmsccontents/adfservice/";
+		String rootPath = "/home/led/work/github/Java/reporting/bmsccontents/test/";
 		String content = loadFile(rootPath);
 		if (content != null) {
-			//System.out.println("rawdata spout input: " + content);
-			this.collector.emit(new Values(content));					
+			//System.out.println("New raw data is ready to emit: " + content);
+			this.collector.emit(new Values(content));
 		}else {
-			this.collector.emit(new Values("dummy data, open file failed"));
-			deactivate();
+			System.out.println("No raw data to emit");
 		}
 	}
 
@@ -43,9 +46,6 @@ public class RawDataSpout extends BaseRichSpout{
 	}
 		
 	private String loadFile(String rootPath) {
-		InputStreamReader reader;
-		BufferedReader br;
-		
 		String filePath = rootPath + "1.log";
 		File file = new File(filePath);
 		Long fileLength = file.length();

@@ -7,18 +7,19 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 
-public class RawDataUnifyBolt extends BaseBasicBolt {
+public class ParseBolt extends BaseBasicBolt {
+	
 	public void execute(Tuple input, BasicOutputCollector collector) {
 		String sentence = (String) input.getValue(0);
-		//System.out.println("unify bolt input: " + sentence);
+		//System.out.println("parse bolt input: " + sentence);
 		String[] items = sentence.split("\n");
-		for (String item : items) {
-			String out = item + "!";
-			collector.emit(new Values(out));
-		}	
+		for (int i = 1; i < items.length; i++) {
+			String[] params = items[i].split(",");
+			collector.emit(new Values(params[0], params[1], params[4], params[5]));
+		}
 	}
 
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		declarer.declare(new Fields("excl_sentence"));		
+		declarer.declare(new Fields("broadcast_id", "client_id", "lost_obj", "received_obj"));		
 	}
 }
