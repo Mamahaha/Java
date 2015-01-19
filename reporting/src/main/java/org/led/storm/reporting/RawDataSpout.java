@@ -30,10 +30,10 @@ public class RawDataSpout extends BaseRichSpout{
 			e.printStackTrace();
 		}
 		
-		String rootPath = "/home/led/work/github/Java/reporting/bmsccontents/test/";
+		String rootPath = "./bmsccontents/test/";
 		String content = loadFile(rootPath);
 		if (content != null) {
-			//System.out.println("New raw data is ready to emit: " + content);
+			System.out.println("================New raw data is ready to emit.===================");
 			this.collector.emit(new Values(content));
 		}else {
 			System.out.println("No raw data to emit");
