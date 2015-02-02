@@ -1,5 +1,7 @@
 package org.led.storm.reporting;
 
+import storm.trident.TridentState;
+import storm.trident.TridentTopology;
 import backtype.storm.Config;
 import backtype.storm.LocalCluster;
 import backtype.storm.StormSubmitter;
@@ -14,7 +16,8 @@ import backtype.storm.utils.Utils;
  *
  */
 public class Analyzer {
-	public static void main(String[] args) {
+	
+	private static void singleJob(String[] args) {
 		TopologyBuilder builder = new TopologyBuilder();
 
 		builder.setSpout("rawdata", new RawDataSpout());
@@ -29,15 +32,12 @@ public class Analyzer {
 
 		if (args != null && args.length > 0) {
 			conf.setNumWorkers(3);
-
 			try {
 				StormSubmitter.submitTopology(args[0], conf,
 						builder.createTopology());
 			} catch (AlreadyAliveException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (InvalidTopologyException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
@@ -47,5 +47,17 @@ public class Analyzer {
 			cluster.killTopology("test");
 			cluster.shutdown();
 		}
+		
+	}
+	
+	private static void tridentJob(String[] args) {
+		/*TridentTopology topology = new TridentTopology();
+		TridentState parseState = topology.newStream("rawdata", new RawDataSpout())
+									.each(new Fields(), filter)*/
+		
+	}
+	
+	public static void main(String[] args) {
+		singleJob(args);
 	}
 }

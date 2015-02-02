@@ -9,6 +9,11 @@ import backtype.storm.tuple.Values;
 
 public class ParseBolt extends BaseBasicBolt {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public void execute(Tuple input, BasicOutputCollector collector) {
 		String sentence = (String) input.getValue(0);
 		//System.out.println("parse bolt input: " + sentence);

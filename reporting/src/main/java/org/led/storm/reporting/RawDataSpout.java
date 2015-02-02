@@ -15,6 +15,10 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Values;
 
 public class RawDataSpout extends BaseRichSpout{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private SpoutOutputCollector collector;
 	
 	public void open(Map conf, TopologyContext context,
@@ -33,10 +37,10 @@ public class RawDataSpout extends BaseRichSpout{
 		String rootPath = "./bmsccontents/test/";
 		String content = loadFile(rootPath);
 		if (content != null) {
-			System.out.println("================New raw data is ready to emit.===================");
+			System.out.println("================Ready to emit new raw data.===================");
 			this.collector.emit(new Values(content));
 		}else {
-			System.out.println("No raw data to emit");
+			System.out.println("ERROR: No raw data to emit");
 		}
 	}
 

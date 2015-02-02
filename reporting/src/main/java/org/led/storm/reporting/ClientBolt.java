@@ -10,6 +10,10 @@ import backtype.storm.tuple.Fields;
 import backtype.storm.tuple.Tuple;
 
 public class ClientBolt extends BaseBasicBolt {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int indexId;
 	private Integer totalLostCount = new Integer(0);
 	private Integer totalReceivedCount = new Integer(0);
