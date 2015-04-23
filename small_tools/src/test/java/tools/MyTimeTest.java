@@ -3,10 +3,16 @@ package tools;
 import static org.junit.Assert.*;
 
 import java.text.ParseException;
+import java.util.Date;
 
 import org.junit.Test;
 
 public class MyTimeTest {
+    
+    @Test
+    public void testNtp2Utc() {
+
+    }
 
     @Test
     public void testGenerateDate() {
