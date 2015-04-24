@@ -36,11 +36,4 @@ public class MyTimer {
     public void start() {
         timer.schedule(new MyTimerTask(0, 3000),  3000);
     }
-    
-    public static void main(String[] args) {
-        MyTimer myTimer = new MyTimer();
-        myTimer.start();
-    }
-    
-    
 }
