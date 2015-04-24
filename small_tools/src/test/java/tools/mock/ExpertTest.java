@@ -5,6 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
+/*
+ * Ref: 
+ * http://qiuguo0205.iteye.com/blog/1456528
+ * http://qiuguo0205.iteye.com/blog/1443344
+ */
 public class ExpertTest {
 
     @Test
@@ -48,7 +53,7 @@ public class ExpertTest {
     }    
 
     @Test
-    public void testStub() {
+    public void testStub1() {
         // From the printing result we can find how to create a faked object
         // with expected return value.
         Advance mockAdvance = mock(Advance.class);
@@ -59,6 +64,18 @@ public class ExpertTest {
         assertEquals(ex.getBaseI(), 3);
     }
 
+    @Test
+    public void testStub2() {
+        // Used to show mock stub returns different values for each call
+        Advance mockAdvance = mock(Advance.class);
+
+        // stubbing
+        when(mockAdvance.getBaseI()).thenReturn(3,5,7);
+        assertEquals(mockAdvance.getBaseI(), 3);
+        assertEquals(mockAdvance.getBaseI(), 5);
+        assertEquals(mockAdvance.getBaseI(), 7);
+    }
+    
     @Test
     public void testParameter() {
         // Used to check if the mocked function(use when-then) is really executed.
