@@ -1,0 +1,41 @@
+module bvps-mpd-cache {
+  namespace "http://com.ericsson/ns/bvps/mpd-cache";    
+  prefix bmch;
+
+  organization      
+    "Ericsson AB. ";
+  contact           
+    "Email: support@ericsson.com";
+  description    
+    "This module contains the definition of the MPD cache.";
+
+  container mpd-cache {
+    leaf init-flag {
+      default false;
+      type boolean;
+    }
+    
+    list mpd-info {
+      key "mpd-url";
+      
+      leaf mpd-url {
+        type string;
+      }
+      
+      list broadcasts {
+        key "broadcast";
+        leaf broadcast {
+          type string;
+        }
+      }
+      
+      leaf last-modify-time {
+        type string;
+      }
+      
+      leaf md5 {
+        type string;
+      }
+    }
+  } /* container */
+} /* module */
