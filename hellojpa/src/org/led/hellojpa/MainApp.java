@@ -16,7 +16,7 @@ import org.led.hellojpa.utils.EntityManagerUtil;
 import org.led.hellojpa.utils.PersistenceContext;
 
 
-public class MainApp {
+public class MainApp<T> {
 	
 	public static void addGuild() {
 		PersistenceContext ctx = new PersistenceContext();
@@ -56,7 +56,7 @@ public class MainApp {
 		GuildDao gDao = new GuildDaoImpl(ctx);
 		
 		PlayerEntity entity = new PlayerEntity();
-		entity.setName("Moon");
+		entity.setName("Star");
 		entity.setAge(15);
 		entity.setLevel(18);
 		entity.setScore(378960);
@@ -71,17 +71,18 @@ public class MainApp {
         }
 	}
 	
-	public static void testSqlCmd(String sqlCmd) {
+	public <T> void testSqlCmd(String sqlCmd) {
 		PersistenceContext ctx = new PersistenceContext();
+		
 		EntityManagerFactory factory = EntityManagerUtil
                 .getEntityManagerFactory();
 		
 		ctx.setEntityManager(factory.createEntityManager());
 		Query query = ctx.getEntityManager().createQuery(sqlCmd);
 		@SuppressWarnings("unchecked")
-		List<GuildEntity> list = (List<GuildEntity>)query.getResultList();
-		for (GuildEntity entity : list) {
-			System.out.println(entity.toString());
+		List<T> list = (List<T>)query.getResultList();
+		for (T item : list) {
+			System.out.println(item.toString());
 		}
 		
 		if (ctx != null) {
@@ -90,9 +91,13 @@ public class MainApp {
 	}
 	public static void main(String[] args) {
 		//addGuild();
-		addPlayer();
+		//addPlayer();
 		
-		//==============
-		//testSqlCmd("SELECT a FROM GuildEntity a");
+		//========1======
+//		MainApp<GuildEntity> app = new MainApp<GuildEntity>();
+//		app.testSqlCmd("SELECT a FROM GuildEntity a");
+		//========2======
+		MainApp<Long> app = new MainApp<Long>();
+		app.testSqlCmd("SELECT a.id FROM GuildEntity a");
 	}
 }
