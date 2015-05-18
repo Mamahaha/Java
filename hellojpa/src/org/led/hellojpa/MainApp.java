@@ -97,7 +97,10 @@ public class MainApp<T> {
 //		MainApp<GuildEntity> app = new MainApp<GuildEntity>();
 //		app.testSqlCmd("SELECT a FROM GuildEntity a");
 		//========2======
-		MainApp<Long> app = new MainApp<Long>();
-		app.testSqlCmd("SELECT a.id FROM GuildEntity a");
+//		MainApp<Long> app = new MainApp<Long>();
+//		app.testSqlCmd("SELECT a.id FROM GuildEntity a");
+		//========3======
+		MainApp<PlayerEntity> app = new MainApp<PlayerEntity>();
+		app.testSqlCmd("SELECT a FROM PlayerEntity a");
 	}
 }
