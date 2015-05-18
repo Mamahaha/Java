@@ -3,6 +3,6 @@
 	<persistence-unit name="jpa" transaction-type="RESOURCE_LOCAL">
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<class>org.led.hellojpa.entity.GuildEntity</class>
-		<class>org.led.hellojpa.entity.PlayerEntity</class>
+        <class>org.led.hellojpa.entity.PlayerEntity</class>	
 	</persistence-unit>
 </persistence>
