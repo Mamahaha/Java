@@ -3,9 +3,13 @@ package org.led.hellorest.inbound;
 import java.net.URI;
 
 import javax.ws.rs.core.UriBuilder;
+import javax.ws.rs.ext.RuntimeDelegate;
 
+import org.eclipse.jetty.http.HttpParser.HttpHandler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerCollection;
+import org.eclipse.jetty.servlet.ServletContextHandler;
+import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.jetty.JettyHttpContainer;
 import org.glassfish.jersey.jetty.JettyHttpContainerFactory;
 import org.glassfish.jersey.server.ContainerFactory;
@@ -25,20 +29,23 @@ public class RestServer extends ResourceConfig{
         packages("org.led.hellorest.inbound");
     }
     
-	public void start() {
-		URI baseUri = UriBuilder.fromUri(ADDRESS).port(port).build();
-		server = JettyHttpContainerFactory.createServer(baseUri, false);
-		
-		JettyHttpContainer container = (JettyHttpContainer) ContainerFactory.createContainer(
-                JettyHttpContainer.class, this);
-		
-		HandlerCollection handlers = new HandlerCollection();
-
-        handlers.addHandler(container);
-        //handlers.addHandler(new AccessLogHandler());
-
-        server.setHandler(handlers);
-        
+	public void start1() {
+				
+		ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
+        context.setContextPath("/");
+ 
+        server = new Server(8077);
+        server.setHandler(context);
+ 
+        ServletHolder jerseyServlet = context.addServlet(
+             org.glassfish.jersey.servlet.ServletContainer.class, "/*");
+        jerseyServlet.setInitOrder(0);
+ 
+        // Tells the Jersey Servlet which REST service/class to load.
+        jerseyServlet.setInitParameter(
+           "jersey.config.server.provider.classnames",
+           HelloRest.class.getCanonicalName());
+                
         try {
             server.start();
             server.join();
@@ -47,6 +54,18 @@ public class RestServer extends ResourceConfig{
         }
 	}
 	
+	public void start2() {
+		URI baseUri = UriBuilder.fromUri(ADDRESS).port(port).build();
+		server = JettyHttpContainerFactory.createServer(baseUri, false);
+		
+		
+		try {
+            server.start();
+            server.join();
+        } catch (Exception e) {
+        	
+        }
+	}
 	public void stop() {
 		try {
 			server.stop();
@@ -57,7 +76,7 @@ public class RestServer extends ResourceConfig{
 	}
 	
 	public void activate() {
-		this.start();
+		this.start1();
 	}
 	
 	public void deactivate() {

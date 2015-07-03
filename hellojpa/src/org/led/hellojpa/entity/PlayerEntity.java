@@ -94,7 +94,11 @@ public class PlayerEntity implements Serializable {
 		this.score = score;
 	}
 
-	
+	public String toString() {
+		String info = "id: " + id + "\nname: " + name + "\nlevel: " + level
+						+ "\nscore: " + score + "\nguild: " + gid + "\n";
+		return info;
+	}
 
 }
 
