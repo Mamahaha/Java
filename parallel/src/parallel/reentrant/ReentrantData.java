@@ -145,6 +145,7 @@ public class ReentrantData {
 
 	public void setValue2(int value) {
 		rwLock.writeLock().lock();
+		lock.lock();
 		try {
 			showTime("start setValue2: " + this.value);
 			try {

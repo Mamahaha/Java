@@ -89,16 +89,17 @@ public class MainApp {
 	}
 	
 	public static void main(String[] args) {
+		boolean bp = false;
 		System.out.println("===Start testing");
 		
 		//test("sync-reentrant-no-lock");
 		//test("sync-reentrant-sync");
 		//test("sync-reentrant-lock");
-		//test("sync-reentrant-read-write-lock");
+		test("sync-reentrant-read-write-lock");
 		//test("sync-reentrant-lock-interrupt");
-		test("sync-reentrant-lock-condition");
+		//test("sync-reentrant-lock-condition");
 		
-		System.out.println("===End of testing");
+		//System.out.println("===End of testing");
 	}
 }
 
