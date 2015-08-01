@@ -12,6 +12,7 @@ import org.led.hellojpa.dao.impl.GuildDaoImpl;
 import org.led.hellojpa.dao.impl.PlayerDaoImpl;
 import org.led.hellojpa.entity.GuildEntity;
 import org.led.hellojpa.entity.PlayerEntity;
+import org.led.hellojpa.utils.ConfigLoader;
 import org.led.hellojpa.utils.EntityManagerUtil;
 import org.led.hellojpa.utils.PersistenceContext;
 
@@ -92,6 +93,7 @@ public class MainApp<T> {
 	}
 
 	public static void main(String[] args) {
+		String sqlCmd = ConfigLoader.getValue("sql_cmd");
 		//addGuild();
 		//addPlayer();
 		
@@ -103,6 +105,6 @@ public class MainApp<T> {
 //		app.testSqlCmd("SELECT a.id FROM GuildEntity a");
 		//========3======
 		MainApp<GuildEntity> app = new MainApp<GuildEntity>();
-		app.testSqlCmd("SELECT guild FROM PlayerEntity as player JOIN player.guild as guild WHERE player.name='Star1'");
+		app.testSqlCmd(sqlCmd);
 	}
 }
