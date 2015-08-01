@@ -7,7 +7,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import org.apache.openjpa.persistence.jdbc.ForeignKey;
+import org.apache.openjpa.persistence.jdbc.Index;
 
 
 /**
@@ -43,15 +48,18 @@ public class PlayerEntity implements Serializable {
 	@Column(name = "score", nullable = false)
 	private long score;
 	
-	@Column(name = "gid", nullable = false)
-	private long gid;
+	@Index
+	@ManyToOne
+	@ForeignKey
+	@JoinColumn(name = "guildID")
+	private GuildEntity guild;
 	
-	public long getGid() {
-		return gid;
+	public GuildEntity getGuild() {
+		return guild;
 	}
 
-	public void setGid(long gid) {
-		this.gid = gid;
+	public void setGuild(GuildEntity guild) {
+		this.guild = guild;
 	}
 
 	public String getName() {
@@ -95,8 +103,9 @@ public class PlayerEntity implements Serializable {
 	}
 
 	public String toString() {
-		String info = "id: " + id + "\nname: " + name + "\nlevel: " + level
-						+ "\nscore: " + score + "\nguild: " + gid + "\n";
+		String info = "Id\t\tName\t\tLevel\t\tScore\t\tGuild\n";
+		info += id + "\t\t" + name + "\t\t" + level + "\t\t" + score + "\t\t" + guild.getName() + "\n";
+
 		return info;
 	}
 

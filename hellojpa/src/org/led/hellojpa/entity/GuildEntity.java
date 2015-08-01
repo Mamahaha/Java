@@ -96,8 +96,9 @@ public class GuildEntity implements Serializable {
 	}
 	
 	public String toString() {
-		String info = "id: " + id + "\nname: " + name + "\nlevel: " + level
-						+ "\ncount: " + count + "\ntoken: " + token + "\n";
+		String info = "Id\t\tName\t\tLevel\t\tCount\t\tToken\n";
+		info += id + "\t\t" + name + "\t\t" + level + "\t\t" + count + "\t\t" + token + "\n";
+		
 		return info;
 	}
 }

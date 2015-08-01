@@ -30,10 +30,10 @@ public class MainApp<T> {
 		GuildDao dao = new GuildDaoImpl(ctx);
 		
 		GuildEntity entity = new GuildEntity();
-		entity.setName("DEVIL");
+		entity.setName("DEVIL1");
 		entity.setCount(6);
 		entity.setLevel(8);
-		entity.setFlag("DEVIL Flag");
+		entity.setFlag("DEVIL 1 Flag");
 		
 		dao.createGuildEntity(entity);
 		et.commit();
@@ -56,12 +56,12 @@ public class MainApp<T> {
 		GuildDao gDao = new GuildDaoImpl(ctx);
 		
 		PlayerEntity entity = new PlayerEntity();
-		entity.setName("Star");
+		entity.setName("Star1");
 		entity.setAge(15);
 		entity.setLevel(18);
-		entity.setScore(378960);
-		entity.setSex("Male");
-		entity.setGid(gDao.getIdByName("DEVIL"));
+		entity.setScore(278960);
+		entity.setSex("Female");
+		entity.setGuild(gDao.getGuildByName("DEVIL1"));
 		
 		pDao.createPlayerEntity(entity);
 		et.commit();
@@ -70,6 +70,7 @@ public class MainApp<T> {
 			ctx.getEntityManager().close();
         }
 	}
+	
 	
 	public <T> void testSqlCmd(String sqlCmd) {
 		PersistenceContext ctx = new PersistenceContext();
@@ -82,13 +83,14 @@ public class MainApp<T> {
 		@SuppressWarnings("unchecked")
 		List<T> list = (List<T>)query.getResultList();
 		for (T item : list) {
-			System.out.println(item.toString());
+			System.out.print(item.toString());
 		}
 		
 		if (ctx != null) {
 			ctx.getEntityManager().close();
         }
 	}
+
 	public static void main(String[] args) {
 		//addGuild();
 		//addPlayer();
@@ -100,7 +102,7 @@ public class MainApp<T> {
 //		MainApp<Long> app = new MainApp<Long>();
 //		app.testSqlCmd("SELECT a.id FROM GuildEntity a");
 		//========3======
-		MainApp<PlayerEntity> app = new MainApp<PlayerEntity>();
-		app.testSqlCmd("SELECT a FROM PlayerEntity a");
+		MainApp<GuildEntity> app = new MainApp<GuildEntity>();
+		app.testSqlCmd("SELECT guild FROM PlayerEntity as player JOIN player.guild as guild WHERE player.name='Star1'");
 	}
 }

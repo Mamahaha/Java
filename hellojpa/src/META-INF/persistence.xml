@@ -4,5 +4,8 @@
 		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 		<class>org.led.hellojpa.entity.GuildEntity</class>
         <class>org.led.hellojpa.entity.PlayerEntity</class>	
+        <properties>
+        	<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
+        </properties>
 	</persistence-unit>
 </persistence>

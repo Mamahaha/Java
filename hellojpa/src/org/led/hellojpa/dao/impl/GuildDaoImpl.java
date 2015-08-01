@@ -35,5 +35,18 @@ public class GuildDaoImpl implements GuildDao {
         
         return Long.valueOf(query.getSingleResult().toString());        
 	}
+	
+	public GuildEntity getGuildByName(String name) {
+		StringBuilder sb = new StringBuilder("SELECT a FROM GuildEntity a ");
+        if (StringUtils.isNotBlank(name)) {
+            sb.append(" WHERE a.name = :name");
+        }
+        Query query = entityManager.createQuery(sb.toString());
+        if (StringUtils.isNotBlank(name)) {
+            query.setParameter("name", name);
+        }
+        
+        return (GuildEntity)(query.getSingleResult());        
+	}
 
 }
