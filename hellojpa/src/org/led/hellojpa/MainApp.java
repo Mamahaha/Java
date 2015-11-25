@@ -98,13 +98,13 @@ public class MainApp<T> {
 		//addPlayer();
 		
 		//========1======
-//		MainApp<GuildEntity> app = new MainApp<GuildEntity>();
-//		app.testSqlCmd("SELECT a FROM GuildEntity a");
+		MainApp<GuildEntity> app = new MainApp<GuildEntity>();
+		app.testSqlCmd("SELECT a FROM GuildEntity a");
 		//========2======
 //		MainApp<Long> app = new MainApp<Long>();
 //		app.testSqlCmd("SELECT a.id FROM GuildEntity a");
 		//========3======
-		MainApp<GuildEntity> app = new MainApp<GuildEntity>();
-		app.testSqlCmd(sqlCmd);
+		//MainApp<GuildEntity> app = new MainApp<GuildEntity>();
+		//app.testSqlCmd(sqlCmd);
 	}
 }
