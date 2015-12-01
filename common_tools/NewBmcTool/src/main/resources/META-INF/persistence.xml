@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+  xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+	<persistence-unit name="haha" transaction-type="RESOURCE_LOCAL">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		
+		<class>org.led.tools.BmcDbOperator.entity.AdpdServiceUri</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Bearer</class>
+	    <class>org.led.tools.BmcDbOperator.entity.BroadcastArea</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Service</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ServiceArea</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ServiceClass</class>
+	    <class>org.led.tools.BmcDbOperator.entity.SDCHService</class>
+	    <class>org.led.tools.BmcDbOperator.entity.UserService</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Broadcast</class>
+	    <class>org.led.tools.BmcDbOperator.entity.UserServiceInstance</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Continuous</class>
+	    <class>org.led.tools.BmcDbOperator.entity.OnRequest</class>
+	    <class>org.led.tools.BmcDbOperator.entity.FECTemplate</class>
+	    <class>org.led.tools.BmcDbOperator.entity.RRTemplate</class>
+	    <class>org.led.tools.BmcDbOperator.entity.FRTemplate</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Mpdis</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Cache</class>
+	    <class>org.led.tools.BmcDbOperator.entity.DeviceCacheInfo</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Content</class>
+	    <class>org.led.tools.BmcDbOperator.entity.FileSchedule</class>
+	    <class>org.led.tools.BmcDbOperator.entity.BDC</class>
+	    <class>org.led.tools.BmcDbOperator.entity.BmcUser</class>
+	    <class>org.led.tools.BmcDbOperator.entity.QoeMetrics</class>
+	    <class>org.led.tools.BmcDbOperator.entity.DeviceDeliverySessionInstanceInfo</class>
+	    <class>org.led.tools.BmcDbOperator.entity.DeviceContentInfo</class>
+	    <class>org.led.tools.BmcDbOperator.entity.DeviceContinuousInfo</class>
+	    <class>org.led.tools.BmcDbOperator.entity.BmcRole</class>
+	    <class>org.led.tools.BmcDbOperator.entity.CDN</class>
+	    <class>org.led.tools.BmcDbOperator.entity.BmcUserSession</class>
+	    <class>org.led.tools.BmcDbOperator.entity.BmcParameter</class>
+	    <class>org.led.tools.BmcDbOperator.entity.LockAssist</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ServiceAreaPolygon</class>
+	    <class>org.led.tools.BmcDbOperator.entity.NotificationURL</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ProvisionConfig</class>
+	    <class>org.led.tools.BmcDbOperator.entity.SDPInfo</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Frequency</class>
+	    <class>org.led.tools.BmcDbOperator.entity.Gateway</class>
+	    <class>org.led.tools.BmcDbOperator.entity.MmePool</class>
+	    <class>org.led.tools.BmcDbOperator.entity.MmeAddress</class>
+	    <class>org.led.tools.BmcDbOperator.entity.AlarmText</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ActiveAlarm</class>
+	    <class>org.led.tools.BmcDbOperator.entity.HistoryAlarm</class>
+	    <class>org.led.tools.BmcDbOperator.entity.UserAlarmSearchCriteria</class>
+	    <class>org.led.tools.BmcDbOperator.entity.AlarmRemedyText</class>
+	    <class>org.led.tools.BmcDbOperator.entity.MWConfigContent</class>
+	    <class>org.led.tools.BmcDbOperator.entity.MWConfigSchema</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ADF</class>
+	    <class>org.led.tools.BmcDbOperator.entity.OperationHistory</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ReportingMetadata</class>
+	    <class>org.led.tools.BmcDbOperator.entity.OriginPipeResource</class>
+	    <class>org.led.tools.BmcDbOperator.entity.TmgiRange</class>
+	    <class>org.led.tools.BmcDbOperator.entity.TMGI</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ENodeB</class>
+	    <class>org.led.tools.BmcDbOperator.entity.SaiEnodebMapping</class>
+	    <class>org.led.tools.BmcDbOperator.entity.PipeResource</class>
+	    <class>org.led.tools.BmcDbOperator.entity.ENodeBGroup</class>
+	    <class>org.led.tools.BmcDbOperator.entity.OccupiedPipe</class>
+	    <class>org.led.tools.BmcDbOperator.entity.PipeLock</class>
+	    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+	    
+        <properties>
+        	<!-- property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+		    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://127.0.0.1:5432/bmc"/>
+		    <property name="javax.persistence.jdbc.user" value="led"/>
+		    <property name="javax.persistence.jdbc.password" value="bmc"/>
+		    <property name="openjpa.jdbc.SchemaFactory" value="native(ForeignKeys=true)"/>
+		    <property name="openjpa.jdbc.DBDictionary" value="postgres(SearchStringEscape=#)" /-->
+		    <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
+            <!-- property name="openjpa.Log" value="DefaultLevel=WARN, Runtime=INFO,Tool=INFO, SQL=TRACE"/-->
+        </properties>
+	</persistence-unit>
+</persistence>
