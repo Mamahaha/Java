@@ -16,10 +16,10 @@ public class MainApp<T>
         EntityManagerFactory emf = EntityManagerUtil.getEntityManagerFactory();
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
-        Collection result = em.createQuery(sqlCmd).getResultList();        
+        Collection<T> result = em.createQuery(sqlCmd).getResultList();        
         
         for(Iterator<T> it = result.iterator(); it.hasNext();) {
-            T item = (T) it.next();
+            T item = it.next();
             System.out.println(item.toString());
         }
         em.getTransaction().commit();
@@ -27,7 +27,7 @@ public class MainApp<T>
         emf.close();
     }
         
-    private static void addCDN() {
+    private void addCDN() {
         EntityManagerFactory emf = EntityManagerUtil.getEntityManagerFactory();
         //EntityManagerFactory emf = Persistence.createEntityManagerFactory("bmc");
         EntityManager em = emf.createEntityManager();
@@ -49,7 +49,8 @@ public class MainApp<T>
     {
         String sqlCmd = ConfigLoader.getValue("sql_cmd");
         MainApp<CDN> app = new MainApp<CDN>();
+        app.addCDN();
         app.testSqlCmd(sqlCmd);
-        //addCDN();
+        
     }
 }
