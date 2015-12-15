@@ -21,14 +21,14 @@ public class Quick extends BaseSort{
             swap(rawData, idx1, idx2);
             
         }
-        if(rawData[idx2] < rawData[start]) {
-            swap(rawData, start, idx2);
+        if(rawData[idx1] < rawData[start]) {
+            swap(rawData, start, idx1);
         } else {
             idx2--;
         }
         
         
-        quickSort(rawData, start, idx2-1);
+        quickSort(rawData, start, idx1-1);
         quickSort(rawData, idx2+1, stop);
     }
     public static void sort(int[] rawData) {
