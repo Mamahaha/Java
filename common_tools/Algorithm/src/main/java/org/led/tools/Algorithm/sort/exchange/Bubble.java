@@ -11,6 +11,7 @@ public class Bubble extends BaseSort {
                 cas(rawData, i, i+1);
             }
             idx--;
-        }        
+        }
+        showResult(rawData, "bub: ");
     }
 }
