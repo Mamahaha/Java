@@ -10,11 +10,6 @@
   <name>UnitTest</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.nexusURL>http://nexus.sh.cn.ao.ericsson.se/nexus</maven.nexusURL>
-  </properties>
-
   <dependencies>
     <dependency>    
       <groupId>org.mockito</groupId>

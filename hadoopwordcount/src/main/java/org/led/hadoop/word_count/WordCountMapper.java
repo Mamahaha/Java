@@ -1,4 +1,4 @@
-package com.ericsson.led.github.hadoop.word_count;
+package org.led.hadoop.word_count;
 
 import java.io.IOException;
 

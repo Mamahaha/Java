@@ -15,7 +15,7 @@
  */
  
 
-package com.ericsson.mvn.mypb;
+package org.led.exercise.mypb;
 
 /**
  * phone record structure and related operation

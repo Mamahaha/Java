@@ -1,4 +1,4 @@
-package com.ericsson.test.mypb;
+package org.led.exercise.mypb.test;
 
 
 import static org.junit.Assert.assertEquals;
@@ -7,9 +7,8 @@ import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import com.ericsson.mvn.mypb.PhoneBook;
-import com.ericsson.mvn.mypb.PhoneRecord;
+import org.led.exercise.mypb.PhoneBook;
+import org.led.exercise.mypb.PhoneRecord;
 
 public class PhoneBookTest {
 	private final String pbXml = "myphonebook.xml";

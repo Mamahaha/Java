@@ -15,7 +15,7 @@
  */
 
 // Package
-package com.ericsson.mvn.mypb;
+package org.led.exercise.mypb;
 
 // Imports
 import java.io.BufferedReader;

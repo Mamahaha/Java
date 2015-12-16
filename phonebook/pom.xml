@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.ericsson.mvn</groupId>
+	<groupId>org.led.exercise</groupId>
 	<artifactId>mypb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>com.ericsson.mvn.pb2</name>
+	<name>org.led.exercise.mypb</name>
 	<description>Phonebook Application</description>
 	
 	<build>
@@ -32,7 +32,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.ericsson.mvn.mypb.PhoneBookApp</mainClass>
+									<mainClass>org.led.exercise.mypb.PhoneBookApp</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
@@ -71,15 +71,15 @@
 	</dependencies>
 
 	<organization>
-        <name>Ericsson</name>
-        <url>www.ericsson.com</url>
+        <name>Hulala</name>
+        <url>www.led.org</url>
     </organization>
     
     <developers>
 	    <developer>
-		    <id>exuyufe</id>
-		    <name>Led</name>
-		    <email>led.xu@ericsson.com</email>
+		    <id>led</id>
+		    <name>led</name>
+		    <email>mhmhmh</email>
 		    <roles>
 			    <role>Software Engineer</role>
 		    </roles>

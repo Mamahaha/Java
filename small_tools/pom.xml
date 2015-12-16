@@ -6,16 +6,9 @@
   <name>small_tools</name>
   <description>Small java tools, used to solve/clarify some basic problems</description>
   
-  <properties>
-    <maven.nexusURL>http://nexus.sh.cn.ao.ericsson.se/nexus</maven.nexusURL>
-  </properties>
   
   <packaging>pom</packaging>
   
-  <organization>
-    <name>led Xu</name>
-    <url></url>
-  </organization>
   
   <dependencies>
     <dependency>
