@@ -1,0 +1,36 @@
+{"namespace": "org.led.sreporting.avro", 
+ "type": "array", 
+ "items": { 
+           "namespace": "org.led.sreporting.avro",
+           "name": "ReceptionReport", 
+           "type": "record", 
+           "fields": [ 
+                      {"name": "clientId", "type": "string"},
+                      {"name": "serviceId", "type": "string"},
+                      {"name": "serviceURI", "type": "string"},
+                      {"name": "sessionType", "type": "string"},
+                      {"name": "sessionStartTime", "type": "long"},
+                      {"name": "sessionStopTime", "type": "long"},
+                      {"name": "networkResourceCellId", "type": {"type": "array", "items": {"type": "string"}}},
+                      {"name": "sessionId", "type": "string"},
+                      {"name": "deliverySessionInstanceInfoId", "type": "long"},
+                      {"name": "numOfLostObjects", "type": {"type": "array", "items": {"type": "int"}}},
+                      {"name": "numOfReceivedObjects", "type": {"type": "array", "items": {"type": "int"}}},
+                      {
+                        "name" : "FileUriList",
+                        "type" : {
+                            "type": "array", 
+                            "items": {
+                              "name" : "FileUriRec",
+                              "type" : "record",
+                              "fields" : [ 
+                                {"name" : "fileURI", "type": "string"},
+                                {"name" : "receptionSuccess", "type": "boolean"},
+                                {"name" : "ContentMD5", "type": "string"}
+                              ]
+                            }
+                        }
+                      }
+           ]
+  }
+}
