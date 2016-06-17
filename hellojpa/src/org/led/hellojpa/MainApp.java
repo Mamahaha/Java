@@ -93,13 +93,14 @@ public class MainApp<T> {
 	}
 
 	public static void main(String[] args) {
-		String sqlCmd = ConfigLoader.getValue("sql_cmd");
-		//addGuild();
+		ConfigLoader.initContent("/tmp/db.conf");
+		//String sqlCmd = ConfigLoader.getValue("sql_cmd");
+		addGuild();
 		//addPlayer();
 		
 		//========1======
-		MainApp<GuildEntity> app = new MainApp<GuildEntity>();
-		app.testSqlCmd("SELECT a FROM GuildEntity a");
+		//MainApp<GuildEntity> app = new MainApp<GuildEntity>();
+		//app.testSqlCmd("SELECT a FROM GuildEntity a");
 		//========2======
 //		MainApp<Long> app = new MainApp<Long>();
 //		app.testSqlCmd("SELECT a.id FROM GuildEntity a");

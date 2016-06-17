@@ -80,4 +80,8 @@ public class AESCipher
         return new SecretKeySpec(base64StrToByteArray(key),
                 algorithm);
     }
+    
+    public static void main(String[] args) {
+        System.out.println(decryptAES("$4$w4M1etZKnyYEhYYI0d4IDw=="));
+    }
 }

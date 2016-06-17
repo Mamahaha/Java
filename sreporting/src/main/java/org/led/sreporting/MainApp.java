@@ -2,7 +2,9 @@ package org.led.sreporting;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.avro.Schema;
 import org.apache.avro.mapred.AvroKey;
@@ -267,8 +269,65 @@ public class MainApp {
 				return v1 + v2;
 			}			
 		});
+				
+		//============tuple2 aggregate=================
+		//====In aggregate seq function, the function only returns the last result as the input of comb function
+		//====That's why the tuple2 aggregate does not work===
+		Function2<Tuple2<String, Integer>, Tuple2<String, String>, Tuple2<String, Integer>> tSeqOp = new Function2<Tuple2<String, Integer>, Tuple2<String, String>, Tuple2<String, Integer>>() {
+			public Tuple2<String, Integer> call(Tuple2<String, Integer> v1, Tuple2<String, String> v2)
+					throws Exception {
+				//System.out.println("	===app tSeqOp=== key: <" + v2._1() + ">, value: <" + v2._2() + ">");
+				return new Tuple2<String, Integer>(v2._2(), new Integer(1));
+			}			
+		};
 		
-		JavaPairRDD<String, Integer> agg = wordList.aggregate(0, new Function2<0, Tuple2<String, String>, 0>seqOp, new Function2<>combOp)
+		Function2<Tuple2<String, Integer>, Tuple2<String, Integer>, Tuple2<String, Integer>> tCombOp = new Function2<Tuple2<String, Integer>, Tuple2<String, Integer>, Tuple2<String, Integer>>() {
+			public Tuple2<String, Integer> call(Tuple2<String, Integer> v1, Tuple2<String, Integer> v2) throws Exception {
+				//System.out.println("	===app tCombOp=== key: <" + v2._1() + ">, value: <" + v2._2() + ">");
+				if(v2._1().equals("the")){
+					//System.out.println("	===app tCombOp=== key: <" + v2._1() + ">, value: <" + v2._2() + ">");
+					return new Tuple2<String, Integer>("the", v1._2() + v2._2());
+				}
+				return v1;
+			}			
+		};
+		
+		
+		Tuple2<String, Integer> tAgg = fullWordLog.aggregate(new Tuple2<String, Integer>("the", new Integer(0)), tSeqOp, tCombOp);
+		System.out.println("	===app tuple2 aggregation=== key: <" + tAgg._1() + ">, value: <" + tAgg._2() + ">");
+		
+		//============map aggregate=================
+		Function2<Map<String, Integer>, Tuple2<String, String>, Map<String, Integer>> mSeqOp = new Function2<Map<String, Integer>, Tuple2<String, String>, Map<String, Integer>>() {
+			public Map<String, Integer> call(Map<String, Integer> v1, Tuple2<String, String> v2)
+					throws Exception {
+				String word = v2._2();
+				if (v1.containsKey(word)) {
+					Integer count = v1.get(word) + 1;
+					v1.put(word, count);
+				} else {
+					v1.put(word, new Integer(1));
+				}
+				return v1;
+			}			
+		};
+		Function2<Map<String, Integer>, Map<String, Integer>, Map<String, Integer>> mCombOp = new Function2<Map<String, Integer>, Map<String, Integer>, Map<String, Integer>>() {
+			public Map<String, Integer> call(Map<String, Integer> v1, Map<String, Integer> v2) throws Exception {
+				for (String key : v2.keySet()) {
+					if (v1.containsKey(key)) {
+						v1.put(key,  v1.get(key) + v2.get(key));
+					} else {
+						v1.put(key, v2.get(key));
+					}
+				}
+				return v1;
+			}			
+		};
+		Map<String, Integer> mAgg = fullWordLog.aggregate(new HashMap<String, Integer>(), mSeqOp, mCombOp);
+		for (String key : mAgg.keySet()) {
+			System.out.println("	===app map aggregation=== key: <" + key + ">, value: <" + mAgg.get(key) + ">");
+		}
+		
+		
 		//=============reduce function=== almost not useful=========
 		/*Tuple2<String, Integer> valueRed = wordList.reduce(new Function2<Tuple2<String, Integer>, Tuple2<String, Integer>, Tuple2<String, Integer>>() {
 			public Tuple2<String, Integer> call(Tuple2<String, Integer> v1, Tuple2<String, Integer> v2) throws Exception {
@@ -280,10 +339,10 @@ public class MainApp {
 		
 		//==================display the output======================
 		long count = lineLog.count();
-		List<Tuple2<String, Integer>> contents2 = keyRed.collect();
+		/*List<Tuple2<String, Integer>> contents2 = keyRed.collect();
 		for (Tuple2<String, Integer> content : contents2) {
 			System.out.println("	===app=== key: <" + content._1() + ">, value: <" + content._2() + ">");
-		}
+		}*/
 		
 		long cost = System.currentTimeMillis() - start;
 		System.out.println("===app=== count: " + count + " with time cost: " + cost);

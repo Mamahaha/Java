@@ -35,7 +35,7 @@ public class MainApp<T>
         EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
-            CDN cdn = new CDN("cdn1", "a1", 44, "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1", "j1", "k1", "l1", "m1");
+            CDN cdn = new CDN("cdn2", "a2", 34, "b2", "c2", "d1", "e1", "f1", "g1", "h1", "i1", "j1", "k1", "l1", "m1");
             em.persist(cdn);
             em.getTransaction().commit();
             System.out.println("addCDN completed successfully.");
@@ -52,7 +52,7 @@ public class MainApp<T>
         String sqlCmd = ConfigLoader.getValue("sql_cmd");
         MainApp<CDN> app = new MainApp<CDN>();
         app.addCDN();
-        app.testSqlCmd(sqlCmd);
+        //app.testSqlCmd(sqlCmd);
         
     }
 }

@@ -30,7 +30,6 @@ public class WordCount extends Configured implements Tool
 			int ret = ToolRunner.run(new WordCount(), args);
 			System.exit(ret);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
