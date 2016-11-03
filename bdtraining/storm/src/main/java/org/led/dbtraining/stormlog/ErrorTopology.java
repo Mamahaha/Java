@@ -38,14 +38,17 @@ public class ErrorTopology {
         TopologyBuilder builder = new TopologyBuilder();
         builder.setSpout("source", new KafkaSpout(spoutConfig));
         builder.setBolt("error", new ErrorBolt()).shuffleGrouping("source");
-        builder.setBolt("print", new PrintBolt(), 3).shuffleGrouping("error");  
+        builder.setBolt("print", new PrintBolt(), 3).shuffleGrouping("error");
+        builder.setBolt("hbase", new HbaseBolt(), 3).shuffleGrouping("error");
         //builder.setBolt("print", new KafkaBolt<String, Integer>()).shuffleGrouping("error");
 
         
-        if (topologyName != null) {  
+        if (topologyName != null) {
+        	System.out.println("Kafka Topology has a valid name");
 	        conf.setNumWorkers(1);	
 	        StormSubmitter.submitTopology(topologyName, conf, builder.createTopology());
-	    } else {  
+	    } else {
+	    	System.out.println("Kafka Topology has an empty name");
 	        LocalCluster cluster = new LocalCluster();  
 	        cluster.submitTopology(defaultTopologyName, conf, builder.createTopology());  
 	        Utils.sleep(100000);  
@@ -70,7 +73,8 @@ public class ErrorTopology {
 		  TopologyBuilder builder = new TopologyBuilder();
 	      builder.setSpout("source", new KafkaSpout(kafkaSpoutConfig));
 	      builder.setBolt("error", new ErrorBolt()).shuffleGrouping("source");
-	      builder.setBolt("print", new PrintBolt(), 3).shuffleGrouping("error"); 
+	      builder.setBolt("print", new PrintBolt(), 3).shuffleGrouping("error");
+	      builder.setBolt("hbase", new HbaseBolt(), 3).shuffleGrouping("error");
 		     
 	      StormSubmitter.submitTopology("testtop", config, builder.createTopology());
 		
@@ -83,7 +87,8 @@ public class ErrorTopology {
         
         builder.setSpout("source", new LocalErrorSpout());  
         builder.setBolt("error", new ErrorBolt(), 2).shuffleGrouping("source");  
-        builder.setBolt("print", new PrintBolt(), 3).shuffleGrouping("error");  
+        builder.setBolt("print", new PrintBolt(), 3).shuffleGrouping("error");
+        builder.setBolt("hbase", new HbaseBolt(), 3).shuffleGrouping("error");
   
         Config conf = new Config();  
         conf.setDebug(false);  
