@@ -1,3 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: AlarmOperator
-Class-Path: lib/ncs.jar lib/conf-api-4.1.3.jar lib/log4j.jar
