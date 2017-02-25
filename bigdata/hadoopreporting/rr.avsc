@@ -1,0 +1,14 @@
+{
+    "namespace": "org.led.hadoop.reporting.data",
+    "type": "record",
+    "name": "ReceptionReport",
+    "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "type", "type": "string"},
+        {"name": "count", "type": ["int", "null"]},
+        {"name": "arriveTime", "type": ["int", "null"]},
+        {"name": "requestURI", "type": ["string", "null"]},
+        {"name": "sourceAddress", "type": ["string", "null"]},
+        {"name": "requestXML", "type": ["string", "null"]}
+    ]
+}

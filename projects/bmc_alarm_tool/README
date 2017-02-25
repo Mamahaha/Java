@@ -1,0 +1,30 @@
+## Introduction
+This tool is used to raise&clear an appointed BMC alarm to OSS.
+
+## Install
+1. Logon to BMC SC master node as root
+2. Copy alarm_operator.tar.gz to /root/
+3. [root@SC-1 ~]# tar zxvf alarm_operator.tar.gz
+
+## Uninstall
+1. [root@SC-1 ~]# rm -rf ~/alarm_operator
+
+## How to use
+1. [root@SC-1 ~]# cd ~/alarm_operator
+2. Command
+   [root@SC-1 ~]# ./alarmOperator.sh <operation> <managed device> <managed object> <alarm ID> <severity> <"alarm text">
+   Note : allowed values of <operation> : raise / clear
+          allowed values of <severity>  : INDETERMINATE / CRITICAL / MAJOR / MINOR / WARNING
+3. Example : Raise an alarm "missing_saf_delivery_service_alarm"
+   3.1 Search "missing_saf_delivery_service_alarm" in file alarm_definition.txt and get the alarm ID "449153262"
+   3.2 [root@SC-1 ~]# ./alarm_operator.py raise BMC SDCH 449153262 major "Setting is missing sa service/class."
+   
+## How to check the alarm status
+1. Check it on BMC GUI:
+   1.1 Open BMC GUI
+   1.2 Click "Service Operations" -> "Alarm Center", check if the alarm being raised or cleared is shown in the alarm list.
+2. Check it on OSS node:
+   2.1 Pre-condition: Make sure the steps of "BMC 14A CP3 System Administration Guide chapter 11.3" have been done.
+   2.2 Logon to OSS node
+   2.3 Use tcpdump to capture the packets received from BMC node and check if the alarm is in it.
+

@@ -1,0 +1,210 @@
+<ueReceptionReport>
+  <arriveTime>2014-12-29T07:56:13.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600025" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF06D69 = 240012AF064BD 240012AF069AE 240012AF06510 240012AF05F7C 240012AF05FCF 240012AF06510 240012AF06979 240012AF069AE 240012AF06979 240012AF05F7C 240012AF06510 240012AF06115 240012AF069AE 240012AF05F7C 240012AF06510 240012AF06115 240012AF05F7C 240012AF06D25 240012AF06979 = 240012AF06D25 240012AF06D69 240012AF069AE 240012AF06510 240012AF06058 240012AF06115 240012AF06D25 240012AF06115 240012AF05F7C 240012AF06979 240012AF06D25 240012AF06D69 240012AF06115 240012AF06D69 240012AF064BD 240012AF05F7C 240012AF06D69 240012AF06510" numberOfLostObjects="10 14 15 15 11 17 10 13 13 11 12 15 9 8 15 13 12 9 9 13 11 8 6 7 11 7 10 11 8 10 7 8 5 7 6 2 3 6 3 0" numberOfReceivedObjects="50 46 45 45 49 43 50 47 47 49 48 45 51 52 45 47 48 51 51 47 49 52 54 53 49 53 50 49 52 50 53 52 55 53 54 58 57 54 57 60" sessionStartTime="3628825149" sessionStopTime="3628827549"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T08:35:57.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600025" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF06D25 240012AF06510 240012AF06058 240012AF064BD 240012AF05F7C 240012AF06979 = 240012AF06058 240012AF06979 240012AF06510 240012AF069AE 240012AF06510 240012AF06D69 240012AF05F7C 240012AF069AE = 240012AF06D25 240012AF06058 240012AF05F7C 240012AF06058 240012AF064BD 240012AF06979 240012AF05F7C 240012AF06D69 240012AF06510 240012AF06115 240012AF064BD 240012AF06058 240012AF06510 240012AF05FCF 240012AF05F7C 240012AF06D69 240012AF06058 240012AF06115 240012AF06058 240012AF05F7C 240012AF06058 240012AF06D69 240012AF05F7C 240012AF06D69" numberOfLostObjects="13 14 13 17 8 14 17 17 14 8 8 12 8 14 11 8 7 12 15 9 10 10 8 9 7 12 6 12 5 5 6 7 6 8 7 6 8 4 4 1" numberOfReceivedObjects="47 46 47 43 52 46 43 43 46 52 52 48 52 46 49 52 53 48 45 51 50 50 52 51 53 48 54 48 55 55 54 53 54 52 53 54 52 56 56 59" sessionStartTime="3628827549" sessionStopTime="3628829949"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T09:15:42.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600026" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF05E8C 240012AF0641C 240012AF06484 240012AF06D6A = 240012AF0641C 240012AF05E8C 240012AF062FC 240012AF06484 240012AF067C6 240012AF06D6A 240012AF0739D 240012AF0671D 240012AF071EF 240012AF062FC 240012AF071EF 240012AF0671D 240012AF071EF 240012AF0641C 240012AF06484 240012AF0671D = 240012AF062FC 240012AF0641C = 240012AF06484 = 240012AF0739D 240012AF071EF 240012AF05E8C 240012AF06D6A 240012AF0739D 240012AF071EF 240012AF067C6 240012AF05E8C 240012AF0671D 240012AF0696B 240012AF06D6A 240012AF0696B 240012AF067C6 = 240012AF06D6A = 240012AF067C6 240012AF071EF 240012AF0641C 240012AF06484 240012AF067C6 240012AF06D6A 240012AF071EF 240012AF062FC 240012AF0696B 240012AF06484 240012AF0739D = 240012AF06D6A 240012AF0671D 240012AF071EF 240012AF0641C 240012AF06484 240012AF062FC 240012AF0641C 240012AF0696B = 240012AF062FC 240012AF06484 240012AF071EF 240012AF06D6A 240012AF06484 240012AF0671D = 240012AF0641C 240012AF0671D = 240012AF06D6A 240012AF067C6 240012AF06D6A 240012AF06484 240012AF05E8C 240012AF0739D 240012AF05E8C 240012AF06484 240012AF062FC = 240012AF0696B 240012AF06484 240012AF0739D 240012AF071EF 240012AF05E8C 240012AF06484 240012AF0641C 240012AF05E8C 240012AF06D6A 240012AF05E8C 240012AF06484 240012AF06D6A 240012AF0671D 240012AF05E8C 240012AF0739D 240012AF0641C 240012AF0739D 240012AF0696B 240012AF06484 240012AF062FC 240012AF0696B 240012AF06484 240012AF071EF 240012AF062FC 240012AF0739D 240012AF0641C 240012AF0739D 240012AF071EF 240012AF06D6A 240012AF06484 240012AF0671D 240012AF0696B = 240012AF06D6A 240012AF071EF 240012AF0641C" numberOfLostObjects="6 2 5 4 4 2 2 4 4 2 4 5 5 5 4 5 2 5 4 4 2 2 3 2 2 4 5 3 2 4 4 2 4 4 4 3 4 4 5 3 4 3 2 4 2 4 3 2 3 5 5 3 2 2 3 2 4 2 3 5 5 5 3 2 3 4 3 4 4 4 3 3 4 3 3 3 4 2 3 3 4 2 2 4 3 2 2 4 3 3 1 1 2 2 3 1 2 2 3 2 2 2 2 2 3 3 3 2 1 2 1 1 3 1 1 2 2 1 1 2" numberOfReceivedObjects="54 58 55 56 56 58 58 56 56 58 56 55 55 55 56 55 58 55 56 56 58 58 57 58 58 56 55 57 58 56 56 58 56 56 56 57 56 56 55 57 56 57 58 56 58 56 57 58 57 55 55 57 58 58 57 58 56 58 57 55 55 55 57 58 57 56 57 56 56 56 57 57 56 57 57 57 56 58 57 57 56 58 58 56 57 58 58 56 57 57 59 59 58 58 57 59 58 58 57 58 58 58 58 58 57 57 57 58 59 58 59 59 57 59 59 58 58 59 59 58" sessionStartTime="3628825149" sessionStopTime="3628832349"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T07:56:11.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600027" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF063D5 240012AF07197 240012AF071C4 = 240012AF06E7B 240012AF07008 240012AF06A07 = 240012AF07008 240012AF063D5 240012AF05EC3 240012AF06A07 240012AF071C4 240012AF06A07 240012AF07008 240012AF067E7 240012AF06E7B 240012AF07197 240012AF06C98 240012AF071C4 240012AF07008 240012AF06C98 = = 240012AF06E7B 240012AF074CB 240012AF067E7 240012AF06C98 240012AF06A07 240012AF06E7B 240012AF06A07 240012AF074CB 240012AF05EC3 = 240012AF07197 240012AF074CB 240012AF067E7 240012AF063D5 240012AF06A07 240012AF063D5" numberOfLostObjects="18 10 10 18 12 13 12 15 12 8 9 8 9 9 11 12 10 13 10 12 7 8 7 12 8 11 13 8 11 11 9 8 8 5 7 4 3 3 6 0" numberOfReceivedObjects="42 50 50 42 48 47 48 45 48 52 51 52 51 51 49 48 50 47 50 48 53 52 53 48 52 49 47 52 49 49 51 52 52 55 53 56 57 57 54 60" sessionStartTime="3628825149" sessionStopTime="3628827549"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T08:36:02.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600027" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF074CB 240012AF06A07 240012AF07008 = 240012AF074CB 240012AF06E7B 240012AF074CB 240012AF071C4 240012AF074CB 240012AF063D5 240012AF06A07 = 240012AF071C4 240012AF07197 240012AF06C98 240012AF06A07 240012AF07008 240012AF06A07 240012AF071C4 = 240012AF06A07 240012AF067E7 240012AF063D5 240012AF07008 240012AF06E7B 240012AF071C4 240012AF067E7 240012AF05EC3 240012AF074CB 240012AF071C4 240012AF05EC3 240012AF074CB 240012AF05EC3 240012AF07008 240012AF07197 240012AF06A07 240012AF07197 = = 240012AF063D5" numberOfLostObjects="18 16 9 10 15 17 10 10 11 15 10 13 16 15 7 11 12 11 14 9 13 9 7 10 10 8 8 5 8 5 9 5 7 6 5 5 3 2 3 3" numberOfReceivedObjects="42 44 51 50 45 43 50 50 49 45 50 47 44 45 53 49 48 49 46 51 47 51 53 50 50 52 52 55 52 55 51 55 53 54 55 55 57 58 57 57" sessionStartTime="3628827549" sessionStopTime="3628829949"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T09:16:14.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600028" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF0635C 240012AF073D2 240012AF065C4 240012AF06DA4 240012AF05EA9 240012AF061F3 240012AF05EA9 240012AF061F3 240012AF065C4 240012AF06249 = 240012AF0662D 240012AF06249 = 240012AF07422 = 240012AF061F3 240012AF05EA9 240012AF06DA4 240012AF06EB5 240012AF05EA9 240012AF073D2 240012AF0635C = 240012AF065C4 = 240012AF0635C 240012AF065C4 240012AF06DA4 240012AF06EB5 240012AF06249 240012AF06DA4 240012AF06249 240012AF065C4 240012AF06DA4 240012AF05EA9 240012AF06DA4 240012AF073D2 240012AF06249 240012AF06EB5 240012AF0635C 240012AF065C4 240012AF06DA4 240012AF06249 240012AF065C4 240012AF0662D 240012AF07422 = 240012AF06EB5 240012AF0662D 240012AF05EA9 240012AF065C4 240012AF06EB5 240012AF061F3 240012AF0662D 240012AF06DA4 240012AF06EB5 240012AF073D2 240012AF06DA4 240012AF05EA9 240012AF0635C 240012AF06DA4 240012AF05EA9 240012AF0635C 240012AF06EB5 240012AF0635C 240012AF05EA9 = 240012AF07422 240012AF073D2 240012AF065C4 240012AF07422 240012AF05EA9 240012AF06249 240012AF061F3 240012AF073D2 240012AF065C4 = 240012AF06249 240012AF061F3 240012AF05EA9 240012AF0662D 240012AF06DA4 240012AF0662D 240012AF065C4 240012AF06249 = 240012AF061F3 240012AF073D2 240012AF061F3 240012AF0662D 240012AF073D2 240012AF07422 = 240012AF073D2 240012AF0662D 240012AF06EB5 = = 240012AF0635C = 240012AF06249 240012AF06EB5 240012AF05EA9 240012AF06EB5 240012AF0662D 240012AF06DA4 240012AF06249 240012AF05EA9 240012AF061F3 = 240012AF06249 240012AF065C4 240012AF073D2 240012AF065C4 240012AF06249 240012AF05EA9 240012AF06DA4 240012AF061F3 240012AF06DA4" numberOfLostObjects="6 4 2 3 2 4 2 2 4 3 2 4 3 3 3 3 2 4 5 5 2 5 3 3 5 2 3 4 4 2 2 3 5 2 4 5 4 5 2 3 2 2 5 3 3 3 4 4 5 4 3 5 3 5 2 2 5 3 5 3 4 5 4 4 3 4 2 4 2 2 2 2 4 3 3 2 4 3 4 4 3 4 3 4 2 4 2 3 2 3 4 1 3 2 1 2 1 2 2 2 4 2 2 2 1 3 2 3 2 3 2 1 2 3 1 2 1 2 2 0" numberOfReceivedObjects="54 56 58 57 58 56 58 58 56 57 58 56 57 57 57 57 58 56 55 55 58 55 57 57 55 58 57 56 56 58 58 57 55 58 56 55 56 55 58 57 58 58 55 57 57 57 56 56 55 56 57 55 57 55 58 58 55 57 55 57 56 55 56 56 57 56 58 56 58 58 58 58 56 57 57 58 56 57 56 56 57 56 57 56 58 56 58 57 58 57 56 59 57 58 59 58 59 58 58 58 56 58 58 58 59 57 58 57 58 57 58 59 58 57 59 58 59 58 58 60" sessionStartTime="3628825149" sessionStopTime="3628832349"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T07:56:11.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600029" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF069D7 = 240012AF069CA 240012AF0732E 240012AF0705C 240012AF07454 240012AF069D7 240012AF065CC 240012AF0724E 240012AF0705C 240012AF065CC 240012AF0705C 240012AF071D1 = = 240012AF065CC 240012AF0705C 240012AF0724E 240012AF0732E 240012AF07086 240012AF069D7 240012AF065CC 240012AF07454 240012AF05EFD = 240012AF065CC 240012AF071D1 240012AF065CC 240012AF071D1 240012AF07086 240012AF071D1 240012AF07454 240012AF0705C 240012AF071D1 240012AF05EFD 240012AF07086 240012AF069D7 240012AF071D1 240012AF05EFD 240012AF0732E" numberOfLostObjects="12 12 15 14 14 15 8 17 12 12 13 11 8 8 13 11 13 7 8 7 7 15 10 7 13 6 12 10 7 8 11 4 8 9 6 5 5 2 4 1" numberOfReceivedObjects="48 48 45 46 46 45 52 43 48 48 47 49 52 52 47 49 47 53 52 53 53 45 50 53 47 54 48 50 53 52 49 56 52 51 54 55 55 58 56 59" sessionStartTime="3628825149" sessionStopTime="3628827549"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T08:36:04.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600029" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF0732E 240012AF0724E 240012AF07086 240012AF0705C = 240012AF069CA 240012AF065CC 240012AF07086 240012AF069D7 240012AF0724E 240012AF0732E 240012AF05EFD 240012AF07086 240012AF065CC 240012AF07086 240012AF0705C 240012AF071D1 240012AF069CA 240012AF065CC 240012AF0732E 240012AF065CC 240012AF0705C 240012AF069CA 240012AF0732E 240012AF071D1 = 240012AF07454 240012AF0724E 240012AF0732E 240012AF0705C 240012AF0724E 240012AF069D7 240012AF0732E 240012AF07086 240012AF071D1 240012AF065CC 240012AF069CA 240012AF0705C 240012AF0724E 240012AF069D7" numberOfLostObjects="11 18 10 12 15 9 16 13 17 14 9 11 10 15 15 10 8 10 9 9 7 13 11 11 8 6 8 10 9 9 6 9 6 3 7 6 2 4 4 0" numberOfReceivedObjects="49 42 50 48 45 51 44 47 43 46 51 49 50 45 45 50 52 50 51 51 53 47 49 49 52 54 52 50 51 51 54 51 54 57 53 54 58 56 56 60" sessionStartTime="3628827549" sessionStopTime="3628829949"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T07:55:46.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600030" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF06B6D 240012AF06BDA 240012AF0695B 240012AF06002 240012AF064DE 240012AF064A1 240012AF07404 240012AF064DE 240012AF06BDA 240012AF064A1 240012AF05EED 240012AF064DE 240012AF06002 240012AF07404 240012AF0695B 240012AF05EED 240012AF064DE 240012AF06B6D 240012AF064DE 240012AF064A1 240012AF05EED 240012AF0695B = 240012AF06E1C 240012AF0695B 240012AF064A1 240012AF0695B 240012AF06B6D 240012AF07404 240012AF074E5 240012AF06E1C 240012AF05EED 240012AF06BDA = 240012AF07404 240012AF0695B 240012AF05EED 240012AF064A1 240012AF0695B 240012AF074E5" numberOfLostObjects="10 15 14 18 17 17 16 11 10 13 9 11 14 8 14 14 7 7 11 10 11 7 6 6 8 12 6 7 6 9 6 7 9 5 5 8 7 6 2 1" numberOfReceivedObjects="50 45 46 42 43 43 44 49 50 47 51 49 46 52 46 46 53 53 49 50 49 53 54 54 52 48 54 53 54 51 54 53 51 55 55 52 53 54 58 59" sessionStartTime="3628825149" sessionStopTime="3628827549"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>
+<ueReceptionReport>
+  <arriveTime>2014-12-29T08:35:55.520+00:00</arriveTime>
+  <requestURI>http://mbadp-ohcn01-e.myvzw.com:80/reportingService/test_bdc/16776210_1001_2001</requestURI>
+  <sourceAddress>2001:4888:4:3ee0:b0:d::</sourceAddress>
+  <userAgent><![CDATA[TestAgent]]></userAgent>
+  <contentType><![CDATA[multipart/mixed; boundary=frontier]]></contentType>
+  <requestXML><![CDATA[MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary=frontier
+
+--frontier
+Content-Type: text/xml
+
+<g1:receptionReport xmlns="urn:3gpp:ns:metadata" xmlns:g1="urn:3gpp:metadata:2008:MBMS:receptionreport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:3gpp:metadata:2008:MBMS:receptionreport receptionReportingRequestRestricted.xsd">
+  <g1:statisticalReport clientId="990034600030" serviceId="urn:wpst:test:16776210:1001:2001">
+    <g1:qoeMetrics networkResourceCellId="240012AF06BDA 240012AF07404 240012AF06BDA 240012AF06B6D 240012AF07404 240012AF06B6D 240012AF06002 240012AF074E5 240012AF05EED 240012AF064DE 240012AF06002 240012AF06B6D 240012AF064A1 240012AF06E1C 240012AF05EED 240012AF07404 240012AF06002 240012AF06B6D 240012AF064A1 240012AF06E1C 240012AF05EED 240012AF07404 240012AF06B6D 240012AF064DE = 240012AF074E5 240012AF06BDA 240012AF064A1 240012AF064DE 240012AF064A1 240012AF064DE 240012AF06B6D 240012AF06BDA = 240012AF06E1C 240012AF05EED 240012AF064A1 240012AF0695B 240012AF06BDA 240012AF06E1C" numberOfLostObjects="16 18 16 13 9 17 17 10 8 11 10 10 11 8 9 14 14 11 9 13 13 9 10 12 10 10 8 4 9 6 9 8 4 5 3 3 4 6 3 0" numberOfReceivedObjects="44 42 44 47 51 43 43 50 52 49 50 50 49 52 51 46 46 49 51 47 47 51 50 48 50 50 52 56 51 54 51 52 56 55 57 57 56 54 57 60" sessionStartTime="3628827549" sessionStopTime="3628829949"></g1:qoeMetrics>
+  </g1:statisticalReport>
+</g1:receptionReport>
+
+--frontier--
+]]></requestXML>
+</ueReceptionReport>

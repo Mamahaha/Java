@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: org.led.sreporting.MainApp
+Class-Path: /var/tmp/reporting/spark-core_2.10-1.6.1.jar
+

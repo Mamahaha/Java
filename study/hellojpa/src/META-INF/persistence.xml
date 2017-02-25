@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence
+  xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0">
+	<persistence-unit name="jpa" transaction-type="RESOURCE_LOCAL">
+		<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+		<class>org.led.hellojpa.entity.GuildEntity</class>
+        <class>org.led.hellojpa.entity.PlayerEntity</class>	
+        <properties>
+        	<property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
+        	<property name="openjpa.Log" value="DefaultLevel=WARN, Runtime=INFO,Tool=INFO, SQL=TRACE"/>
+        </properties>
+	</persistence-unit>
+</persistence>
