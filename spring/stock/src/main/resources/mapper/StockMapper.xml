@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.led.spring.stock.mapper.StockMapper">
+    
+   <select id="getPriceById" parameterType="org.led.spring.stock.model.Stock">
+       <![CDATA[
+       SELECT * FROM tb_stock WHERE id = #{id, jdbcType=VARCHAR} LIMIT 1
+       ]]>
+   </select>
+    
+</mapper>
