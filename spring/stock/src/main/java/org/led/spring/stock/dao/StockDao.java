@@ -1,6 +1,7 @@
 package org.led.spring.stock.dao;
 
 import org.led.spring.stock.mapper.StockMapper;
+import org.led.spring.stock.model.Stock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -16,6 +17,10 @@ public class StockDao {
 	
 	public float getPriceById(String id) {
 		return stockMapper.getStockById(id).getPrice();		
+	}
+	
+	public Stock getStockById(String id) {
+	    return stockMapper.getStockById(id);
 	}
 	
 }

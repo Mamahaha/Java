@@ -1,0 +1,17 @@
+buy:
+  threshold: 0.1
+  max: 1000
+  min: 100
+
+sell:
+  threshold: 0.15
+  max: 500
+  min: 200
+
+stock1:
+  id[0]: 000100
+  id[1]: 000651
+  id[2]: 002345
+
+min: 5555
+max: 2345
