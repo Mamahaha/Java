@@ -22,6 +22,7 @@ import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindException;
 
+
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -52,7 +53,10 @@ public class ApplicationPropertiesBindingPostProcessor implements BeanFactoryAwa
             Object newInstance = bindPropertiesToTarget(clazz);
 
             ConfigurableListableBeanFactory configurableListableBeanFactory = (ConfigurableListableBeanFactory) beanFactory;
+            System.out.println("==1== ApplicationPropertiesBindingPostProcessor init: " + newInstance);
+            System.out.println("==22===clazz: " +clazz + "===obj: " + configurableListableBeanFactory.resolveNamedBean(clazz).getBeanInstance());
             configurableListableBeanFactory.registerResolvableDependency(clazz, newInstance);
+            System.out.println("==33===clazz: " +clazz + "===obj: " + configurableListableBeanFactory.resolveNamedBean(clazz).getBeanInstance());
         }
 
     }
@@ -61,7 +65,11 @@ public class ApplicationPropertiesBindingPostProcessor implements BeanFactoryAwa
         ApplicationProperties applicationProperties = clazz.getAnnotation(ApplicationProperties.class);
 
         Constructor<?> constructor = clazz.getConstructor();
-        Object newInstance = constructor.newInstance();
+        ConfigurableListableBeanFactory configurableListableBeanFactory = (ConfigurableListableBeanFactory) beanFactory;
+        Object newInstance = configurableListableBeanFactory.resolveNamedBean(clazz).getBeanInstance();
+        if (newInstance == null) {
+        	newInstance = constructor.newInstance();
+        }
 
         PropertiesConfigurationFactory<Object> factory = new PropertiesConfigurationFactory<>(newInstance);
         factory.setPropertySources(loadPropertySources(applicationProperties.locations()));
@@ -71,6 +79,7 @@ public class ApplicationPropertiesBindingPostProcessor implements BeanFactoryAwa
         }
         try {
             factory.bindPropertiesToTarget();
+            System.out.println("==1== bindPropertiesToTarget 1: " + applicationProperties.prefix());
         } catch (Exception ex) {
             String targetClass = ClassUtils.getShortName(clazz);
             throw new BeanCreationException(clazz.getSimpleName(), "Could not bind properties to " + targetClass + " (" + applicationProperties.toString() + ")", ex);
@@ -90,6 +99,7 @@ public class ApplicationPropertiesBindingPostProcessor implements BeanFactoryAwa
                 }
                 loader.load(resource);
             }
+            System.out.println("==1== load propertysource 1: " + loader.getPropertySources().get("ccc"));
             return loader.getPropertySources();
         } catch (IOException ex) {
             throw new IllegalStateException(ex);

@@ -1,23 +1,27 @@
 package org.led.spring.stock.config;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.led.spring.stock.common.ApplicationProperties;
 
 import lombok.Data;
 
 
 @Data
-@ApplicationProperties(locations = "classpath:cof2.properties")
+@ApplicationProperties(locations = "classpath:config.yml", prefix = "stock")
 public class StockConfig {
 
-    private String max1;
+    private List<String> idList = new ArrayList<>();
 
-    public String getMax1() {
-        return max1;
-    }
+	public List<String> getIdList() {
+		System.out.println("===StockConfig get obj: " + this + "===list len: " + idList.size());
+		return idList;
+	}
 
-    public void setMax1(String max1) {
-        this.max1 = max1;
-    }
-
+	public void setIdList(List<String> idList) {
+		System.out.println("===StockConfig set obj: " + this + "===list len: " + idList.size());
+		this.idList = idList;
+	}
 }

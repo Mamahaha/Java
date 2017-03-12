@@ -1,7 +1,6 @@
 package org.led.spring.stock.web;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.led.spring.stock.config.StockConfig;
@@ -52,15 +51,18 @@ public class StockController {
     
     @RequestMapping(value="/loadstocks", method=RequestMethod.GET)
     public String loadStocks() {
-        /*StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         List<String> idList = stockConfig.getIdList();
         
         for (String id : idList) {
             Stock stock = stockService.getStockbyId(id);
-            sb.append(id).append(" : ").append(stock.getName()).append(" : ").append(stock.getPrice()).append("\n");
+            if (stock != null) {
+            	sb.append(id).append(" : ").append(stock.getName()).append(" : ").append(stock.getPrice()).append("\n");
+            } else {
+            	System.out.println("Could not find stock with id: " + id + ".");
+            }
         }
 
-        return sb.toString();*/
-        return stockConfig.getMax1();
+        return sb.toString();
     }
 }

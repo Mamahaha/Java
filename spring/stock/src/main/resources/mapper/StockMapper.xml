@@ -3,14 +3,14 @@
 
 <mapper namespace="org.led.spring.stock.mapper.StockMapper">
     <resultMap id="StockResultMap" type="org.led.spring.stock.model.Stock">
-        <result property="id" column="id" javaType="String" jdbcType="VARCHAR" />
+        <result property="num" column="num" javaType="String" jdbcType="VARCHAR" />
         <result property="name" column="name" javaType="String" jdbcType="VARCHAR" />
         <result property="price" column="price" javaType="float" jdbcType="REAL" />
     </resultMap>
    
     <select id="getStockById" parameterType="String" resultMap="StockResultMap">
         <![CDATA[
-        SELECT id, name, price FROM tb_stock WHERE id = #{id, jdbcType=VARCHAR}
+        SELECT num, name, price FROM tb_stock WHERE num = #{num, jdbcType=VARCHAR}
         ]]>
     </select>
     
