@@ -25,42 +25,111 @@
                 //setMessageInnerHTML("Login " + xmlhttp.readyState + "; " + xmlhttp.status + "; " + userValue + "; " + xmlhttp.responseText);
                 if (xmlhttp.readyState==4 && xmlhttp.status==200) {
                     var result = xmlhttp.responseText;
-                    if (result != null || result != undefined || result != "") {
-                        setMessageInnerHTML("Login successfully");
+                    if (result != null && result != undefined && result != "") {
+                        setMessageInnerHTML("Http login successfully");
                         setCookie("user", userValue, 10, "/");
                         setCookie("password", passwordValue, 10, "/");
                         setCookie("session", result, 10, "/");
                     } else {
-                        setMessageInnerHTML("Login failed" + result);
+                        setMessageInnerHTML("Http login failed" + result);
                     }
                 }
             }
-
-            var url = "http://192.168.116.153:8080/login?user=" + userValue + "&password=" + passwordValue;
+            var host = getHost();
+            var url = "http://" + host + "/login?user=" + userValue + "&password=" + passwordValue;
             xmlhttp.open("POST", url, true);
-            //xmlhttp.open("POST", "http://127.0.0.1:8080/login?user=xtp&password=xtp", true);
             xmlhttp.send();
         }
 
         function getSession() {
             var sessionValue = getCookieValue("session");
-            setMessageInnerHTML(sessionValue);
+            setMessageInnerHTML("Http session id: " + sessionValue);
         }
-    </script>
 
+        function getHost() {
+            return document.getElementById('host').innerHTML;
+        }
+
+        var websocket;
+        function connectWS() {
+            //判断当前浏览器是否支持WebSocket
+            if('WebSocket' in window){
+                var sessionValue = getCookieValue("session");
+                var userValue = getCookieValue("user");
+                var host = getHost();
+                var url = "ws://" + host + "/websocket/" + sessionValue + "/" + userValue;
+                websocket = new WebSocket(url);
+            }
+            else{
+                alert('Not support websocket')
+            }
+
+            //连接发生错误的回调方法
+            websocket.onerror = function(){
+                setMessageInnerHTML("error");
+            };
+
+            //连接成功建立的回调方法
+            websocket.onopen = function(event){
+                setMessageInnerHTML("WebSocket connection is open");
+            }
+
+            //接收到消息的回调方法
+            websocket.onmessage = function(event){
+                var r = parseInt(Math.random() * 255);
+                var g = parseInt(Math.random() * 255);
+                var b = parseInt(Math.random() * 255);
+                var color = 'rgb('+r+','+g+','+b+')';
+                var message = '<font color="'+color+'">' + event.data + '</font>';
+                setMessageInnerHTML("Received message: " + message);
+            }
+
+            //连接关闭的回调方法
+            websocket.onclose = function(){
+                setMessageInnerHTML("WebSocket connection is closed");
+            }
+
+            //监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+            window.onbeforeunload = function(){
+                websocket.close();
+            }
+        }
+
+        //将消息显示在网页上
+        function setMessageInnerHTML(innerHTML){
+            document.getElementById('message').innerHTML += innerHTML + '<br/>';
+        }
+
+        //关闭连接
+        function closeWebSocket(){
+            websocket.close();
+        }
+
+        //发送消息
+        function send(){
+            var request = document.getElementById('request').value;
+            websocket.send(request);
+        }
+
+    </script>
 </head>
 <body>
-    <div id="message"></div>
+    <div id="host">192.168.116.154:8080</div>
     <p>
         <span>Username:</span>
-        <input id="user" type="text" value=""/></p>
+        <input id="user" type="text" value="xtp"/></p>
     <p>
         <span>Password:</span>
-        <input id="password" type="password" value=""/></p>
+        <input id="password" type="password" value="xtp"/></p>
     <p>
-
+    <p>
+        <span>Request:</span>
+        <input id="request" type="text" value="InsertOrder"/></p>
+    <p>
     <button type="button"  onclick="httpLogin()">login</button>
     <button type="button" onclick="getSession()">session</button>
-    <button type="button" onclick="connectws()">connect websocket</button>
+    <button type="button" onclick="connectWS()">connect websocket</button>
+    <button type="button" onclick="send()">send request</button>
+    <div id="message"></div>
 </body>
 </html>
