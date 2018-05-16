@@ -17,8 +17,8 @@ public class SortApp {
         //Bubble.sort(rawData);
         //Shell.sort(rawData);
         //Select.sort(rawData);
-        //Insert.sort(rawData);
-        Quick.sort(rawData);
+        Insert.sort(rawData);
+        //Quick.sort(rawData);
         //long end = System.currentTimeMillis();
         //System.out.println("Time cost: " + (end - start));
     }

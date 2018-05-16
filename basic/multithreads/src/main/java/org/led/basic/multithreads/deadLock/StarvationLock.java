@@ -43,7 +43,7 @@ public class StarvationLock {
         //No dead lock
         instance.pool.submit(instance.new GoodManager());
         //Dead lock
-        //instance.pool.submit(instance.new BadManager());
+        instance.pool.submit(instance.new BadManager());
         //instance.pool.shutdown();
     }
 }

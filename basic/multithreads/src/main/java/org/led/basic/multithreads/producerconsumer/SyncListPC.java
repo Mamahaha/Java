@@ -95,7 +95,7 @@ class SyncConsumer implements Runnable {
     public void run() {
         String s = null;
         while(!("Done!".equals(s=eq.get()))){
-            System.out.println("SyncConsumer get: " + s);
+            System.out.println("GET Thead: " + Thread.currentThread().getName() + "; SyncConsumer get: " + s);
         }
     }    
 }

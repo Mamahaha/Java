@@ -12,12 +12,20 @@ import java.util.concurrent.BlockingQueue;
 class BQProducer implements Runnable{
     private BlockingQueue<String> queue;
     private int maxSize;
-    private String[] ss = {
+    private String[] createVoD = {
             "Create Delivery Session",
             "Create EMBMS Session",
             "Create Delivery Session Instance",
-            "Cache Add",
+            "Add Cache",
             "Add Content"
+            
+    };
+    private String[] destroyVoD = {
+            "Remove Content",
+            "Remove Cache",
+            "Delete Delivery Session Instance",
+            "Delete EMBMS Session",
+            "Delete Delivery Session"
     };
     public BQProducer(BlockingQueue<String> bq, int size) {
         queue = bq;
@@ -26,7 +34,7 @@ class BQProducer implements Runnable{
 
     public void run() {
         try {
-            for (String s : ss) {
+            for (String s : createVoD) {
                 System.out.println("BQProducer put: " + s + ", size: " + queue.size());
                 queue.put(s);
             }
@@ -50,7 +58,7 @@ class BQConsumer implements Runnable{
         try {
             String msg = null;
             while(!("Done!".equals(msg=queue.take()))) {
-                System.out.println("BQConsumer get: " + msg + ", size: " + queue.size());
+                System.out.println("GET Thead: " + Thread.currentThread().getName() + "; BQConsumer get: " + msg + ", size: " + queue.size());
             }
             
         } catch (InterruptedException e) {
