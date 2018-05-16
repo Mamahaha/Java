@@ -1,4 +1,4 @@
-package tools;
+package tools.cipher;
 
 import java.security.Key;
 import java.security.SecureRandom;
@@ -12,7 +12,7 @@ import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
 
-public class CommonCipher {
+public class AesCipher {
     private static final int KEY_LENGTH = 128;
     private static final String KEY_AES = "AES";
     private static final String ALGORITHM_AES = "AES/CBC/PKCS5Padding";
